@@ -46,6 +46,7 @@ public class ListSetRunnable implements CommandLineRunner {
 
 
 
+        ;;
         createdTaskAfter.getAcompanhadores();
 
 
