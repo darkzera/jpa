@@ -1,0 +1,27 @@
+version: '3.1'
+services :
+  db:
+    image: postgres:10-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: kuser
+      POSTGRES_PASSWORD: kpwd
+      POSTGRES_DB: ktrial
+
+    volumes:
+    - ./sql:/docker-entrypoint-initdb.d
+
+    networks:
+      - compose-network
+
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
+    networks:
+      - compose-network
+
+networks:
+  compose-network:
+    driver: bridge
